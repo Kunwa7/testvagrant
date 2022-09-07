@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+class prod
+{
+	public:
+	string arr;
+	int price;
+	float amount;
+	int qty;
+	int gst;
+	prod(string arr,int price,int qty,int gst)	
+	{
+		this->arr=arr;
+		this->price=price;
+		this->amount=amount;
+		this->qty=qty;
+		this->gst=gst;
+	}
+};
+int main(){
+prod obj1=prod("Leather Wallet",1100,1,18);
+prod obj2=prod("Umbrella",900,2,12);
+prod obj3=prod("Cigarette",200,3,28);
+prod obj4=prod("Honey",100,4,0);
+obj1.amount=obj1.price*obj1.qty*obj1.gst;
+obj2.amount=obj2.price*obj2.qty*obj2.gst;
+obj3.amount=obj3.price*obj3.qty*obj3.gst;
+obj4.amount=obj4.price*obj4.qty*obj4.gst;
+float fin=obj1.amount+obj2.amount+obj3.amount+obj4.amount;
+string maxgst;
+if(obj1.gst>obj2.gst&&obj2.gst>obj3.gst&&obj3.gst>obj4.gst)
+{
+	maxgst="Leather Wallet";
+}
+else if(obj2.gst>obj1.gst&&obj1.gst>obj3.gst&&obj3.gst>obj4.gst)
+{
+	maxgst="Umbrella";
+}
+else if(obj3.gst>obj2.gst&&obj2.gst>obj1.gst&&obj1.gst>obj4.gst)
+{
+	maxgst="Cigarette";
+}
+else if(obj4.gst>obj2.gst&&obj2.gst>obj1.gst&&obj1.gst>obj3.gst)
+{
+	maxgst="Honey";
+}
+cout<<"Maximum gst paid is:"<<maxgst<<endl;
+cout<<"total amount paid is:"<<fin;
+}
+
